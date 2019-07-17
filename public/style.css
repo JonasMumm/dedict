@@ -140,6 +140,21 @@ text-decoration: underline;
 cursor: pointer;
 }
 
+.sidebar
+{
+    min-height: 100vh;
+    position: relative;
+    left: 0;
+    width: 100%;
+}
+
+.sinkingContainer
+{
+    width:64px; /*Attention, this sucks!*/
+    position: absolute;
+    bottom: 0;
+}
+
 .title
 {
     writing-mode: vertical-lr;
@@ -149,7 +164,18 @@ cursor: pointer;
     transform: rotate(180deg);
     display: block;
     margin: auto;
-    min-height: calc(100vh - 2rem);
+    margin-bottom: 2rem;
+    
+}
+
+.title:hover
+{
+text-decoration: underline;
+}
+
+.halfTransparent
+{
+    opacity: 0.5;
 }
 
 .title>a
