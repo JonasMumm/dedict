@@ -9,12 +9,13 @@
   "author": "Jonas",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.19.0",
+    "braces": "^2.3.2",
     "connect-sqlite3": "^0.9.11",
-    "express": "^4.16.4",
+    "express": "^4.17.1",
     "express-nunjucks": "^2.2.3",
     "nodemon": "^1.19.1",
-    "nunjucks": "^3.1.7",
-    "sqlite3": "^4.0.6"
+    "nunjucks": "^3.2.0",
+    "sqlite3": "^4.0.9"
   }
 }
