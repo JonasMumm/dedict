@@ -1,0 +1,203 @@
+* ,*>::after, *>::before
+{
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: fontTitle;
+    src: url(fonts/Roboto_Slab/RobotoSlab-Regular.ttf);
+  }
+
+  @font-face {
+    font-family: fontDefinition;
+    src: url(fonts/Sanchez/Sanchez-Italic.ttf);
+  }
+
+  @keyframes fadeIn
+  {
+    0% { opacity: 0;}
+    100% { opacity: 1;}
+  }
+
+html{
+font-family: fontTitle, 'Times New Roman', Times, serif;
+overflow: hidden;
+background-color: white;
+color: rgb(30,30,30);
+background-color:rgb(0, 0, 0);
+}
+
+body{
+margin: 0;
+}
+
+h1{
+
+}
+
+#mainGrid{
+    display:grid;
+    grid-template-columns: 64px 1fr;
+    overflow: hidden;
+    max-height: 100vh;
+    min-height: 100vh;
+
+}
+
+.scrollContainer{
+display: block;
+min-height:100vh;
+max-height:100vh;
+overflow-x: hidden;
+overflow-y: scroll;
+margin: 0 0 0 0;
+scroll-snap-type: y proximity;
+background-color: white;
+}
+
+#wordContainer
+{
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.loadContentTrigger
+{
+    text-align: center;
+    padding: 2rem 0rem;
+    margin: 0;
+    min-height: 100vh;
+}
+.loadContentTrigger>p
+{
+text-align: center;
+}
+.loadContentButton
+{
+margin: 0 auto;
+}
+
+.dictTreeElem
+{
+    animation-name: fadeIn;
+    animation-duration: 2s;
+}
+
+
+.dictWord{
+    position: sticky;
+    top: 30vh;
+    font-size: 5rem;
+    display: inline-block;
+color: rgb(38, 42, 51);
+border: 0px solid red;
+margin-top: -1em;
+margin-bottom: 0;
+line-height: 1em;
+
+margin-left: 6%;
+white-space: nowrap;
+}
+
+.scrollSnapOffset
+{
+position: relative;
+top: calc( -30vh - 4rem ); /* - word top sticky offset - word font size*/
+left: 0;
+max-height: 0;
+scroll-snap-align: start;
+}
+
+
+.dictWordChanger{
+    margin-top: 4rem;
+}
+
+.dictWordAdder{
+}
+
+.deffinition
+{
+    display: block;
+    font-size: 1.5em;
+    min-width:30%;
+    max-width: 50ch;
+    margin-left: auto;
+    margin-right: calc(20%);
+
+line-height: 1.6em;
+margin-top:5rem;
+margin-bottom: 5rem;
+font-family: fontDefinition;
+}
+
+.invisible{
+    visibility:hidden;
+}
+
+.dictLink:hover{
+text-decoration: underline;
+cursor: pointer;
+}
+
+.title
+{
+    writing-mode: vertical-lr;
+    text-align: left;
+    color: white;
+    text-decoration: none;
+    transform: rotate(180deg);
+    display: block;
+    margin: auto;
+    min-height: calc(100vh - 2rem);
+}
+
+.title>a
+{
+color: inherit;
+text-decoration: inherit;
+}
+
+.loadContentTrigger>*
+{
+    display: none;
+}
+
+.parallax-window
+{
+    width:100%;
+    height: 100vh;
+    background: transparent;
+    position: fixed;
+    top:0;
+    left:0;
+    pointer-events: none;
+}
+
+#searchField
+{
+    position: fixed;
+    left:64px;
+    bottom: 0;
+    background-color: black;
+}
+
+#searchField>p
+{
+color: white;
+display: inline-block;
+margin-right:1rem;
+font-size: 1rem;
+}
+
+#searchField>p:hover
+{
+    cursor: pointer;
+}
+
+#searchField>input
+{
+display:inline-block;
+margin:auto 1rem;
+}
+

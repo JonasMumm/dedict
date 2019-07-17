@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>Dictionary</title>
+    <link rel="stylesheet" href="public/style.css">
+    <link rel="shortcut icon" type="image/png" href="public/img/favicon.png" />
+</head>
+
+<body>
+
+    <div id="mainGrid">
+        <div id="sidebar">
+            <h1 class="title"><a href="/">dedict.</a></h1>
+        </div>
+        <div class="scrollContainer" id="scrollContainerDictionary">
+            <div class="loadContentTrigger" id="loadContentTriggerTop">
+                <p>Loading seems to be taking a little longer...</p>
+                <button class="loadContentButton" id="loadContentButtonTop">Load more words!</button>
+            </div>
+            <div id="wordContainer">
+
+            </div>
+            <div class="loadContentTrigger" id="loadContentTriggerBottom">
+                <p>Loading seems to be taking a little longer...</p>
+                <button class="loadContentButton" id="loadContentButtonBottom">Load more words!</button>
+            </div>
+<div id="searchField">
+        <input type = "text" id = "txtSearch" 
+        onkeydown = "if (event.keyCode == 13)
+                         document.getElementById('btnSearch').click()"    />
+ 
+ <p id ="btnSearch">&#129122;</p>
+</div>
+            
+            
+        </div>
+
+    </div>
+
+
+</body>
+
+<script src="public/js/modules/jquery-3.4.0.js"></script>
+<script src="public/js/modules/jquery.lettering-0.6.1.min.js"></script>
+<script src="public/js/dict.js"></script>
+
+</html>
