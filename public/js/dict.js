@@ -50,7 +50,7 @@ $(document).ready(() => {
         }
         else {
             //scroll up is broken
-            if (scroll < $("#scrollContainerDictionary").innerHeight()*2) {
+            if (scroll < $("#scrollContainerDictionary").innerHeight() * 2) {
                 const firstId = $("#wordContainer").find(".deffinition").first().data().wordId;
                 getWords(firstId - 1, "up");
             }
@@ -70,6 +70,16 @@ $(document).ready(() => {
         if (event.which == 13) //if enter
         {
             jumpToWordMain($("#txtSearch").val());
+        }
+    });
+
+    $("#aboutButton").on("click", () => {
+        aboutShow();
+    });
+
+    $(".aboutContainer").on("click", (event) => {
+        if(event.target.id=="aboutMarginContainer" || event.target.id=="aboutClose" ){
+        aboutHide();
         }
     });
 
@@ -355,14 +365,14 @@ function scrollToWord(word) {
     let offsetElement;
     if (!word) {
 
-                let elems=$("#wordContainer").find(".scrollSnapOffset");
-        offsetElement = elems.get(Math.round(elems.length*0.5));
-        
+        let elems = $("#wordContainer").find(".scrollSnapOffset");
+        offsetElement = elems.get(Math.round(elems.length * 0.5));
+
     }
     else {
         offsetElement = $(`#_${escapeHTMLIdAttribute(word)}`).first().get(0);
     }
-    if (offsetElement!=null) {
+    if (offsetElement != null) {
         $("#scrollContainerDictionary").scrollTop($(offsetElement).position().top - 200 + $("#scrollContainerDictionary").scrollTop());
     }
 
@@ -380,7 +390,7 @@ function jumpToWord() {
 
 function jumpToWordMain(text) {
     let found = false;
-    for (let n = text.length; n >=Math.max(2,text.length-3); n--) {
+    for (let n = text.length; n >= Math.max(2, text.length - 3); n--) {
         let substr = text.substring(0, n);
 
 
@@ -396,21 +406,21 @@ function jumpToWordMain(text) {
         }
     }
 
-        if (!found) {
-            //get id from server
-            console.log("Couldnt find requested word in DOM, let's look it up at the server, shall we?");
+    if (!found) {
+        //get id from server
+        console.log("Couldnt find requested word in DOM, let's look it up at the server, shall we?");
 
-            $.get(`word_id/${text}`, function (data) {
+        $.get(`word_id/${text}`, function (data) {
 
-                let word_id = JSON.parse(data).word_id;
+            let word_id = JSON.parse(data).word_id;
 
-                console.log("ID of " + text + " is " + word_id);
+            console.log("ID of " + text + " is " + word_id);
 
 
-                getWords(word_id, "center", () => { scrollToWord(text) }, true);
+            getWords(word_id, "center", () => { scrollToWord(text) }, true);
 
-            });
-        }
+        });
+    }
 
 
 }
@@ -443,6 +453,31 @@ function resetScrollPositionAfterWordLoadWhenUpdated(originalContainerSize) {
         }
     }
 
+}
 
+function aboutShow() {
+    $(`.aboutContainer`).css({
+        "opacity": "1",
+        "visibility": "visible",
+        "pointer-events": "all",
+        
+    });
 
+    $(`.aboutContainerContent`).css({
+        "transform":"translate(0,0)"
+        
+    });
+}
+
+function aboutHide() {
+    $(`.aboutContainer`).css({
+        "opacity": "0",
+        "pointer-events": "none",
+        
+    });
+
+    $(`.aboutContainerContent`).css({
+        "transform":"translate(-100vh,0)"
+        
+    });
 }

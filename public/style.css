@@ -31,9 +31,7 @@ body{
 margin: 0;
 }
 
-h1{
 
-}
 
 #mainGrid{
     display:grid;
@@ -353,3 +351,84 @@ margin:auto 1rem;
 
 /*end spinenr stuff */
 
+
+.aboutContainer
+{
+    z-index: 99;
+    position: fixed;
+    top:0;
+    left:0;
+    background-color: #0000005b;
+    backdrop-filter: blur(6px);  
+  -webkit-backdrop-filter: blur(6px);
+    width:100vw;
+    height:100vh;
+    transition: opacity 0.25s;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.aboutContainerContent
+{
+  text-align: left;
+    max-width: 70rem;
+    max-height: 100%;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.904);
+    padding:2rem;
+    border-bottom: rgb(185, 185, 185) 5px solid;
+    border-radius: 2rem;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    transform: translate(-100vw,0);
+
+    transition: transform 0.5s cubic-bezier(.01,.8,.49,.99);
+
+}
+
+.aboutTitle
+{
+
+}
+
+.aboutContainerContent > button
+{
+  width: auto;
+  border: 3px black solid;
+  background-color: white;
+  margin:auto;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+.aboutContainerContent > p
+{
+overflow: auto;
+display: block;
+line-height: 1.5;
+}
+
+
+.aboutContainerContent > button:hover
+{
+  text-decoration: underline;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+a:hover{
+cursor: pointer;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
