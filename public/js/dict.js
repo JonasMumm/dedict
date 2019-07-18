@@ -43,14 +43,14 @@ $(document).ready(() => {
 
             //console.log("scrolling: "+ scroll +" "+$("#scrollContainerDictionary")[0].scrollHeight +" "+ -$("#scrollContainerDictionary").innerHeight());
 
-            if (scroll > $("#scrollContainerDictionary")[0].scrollHeight - $("#scrollContainerDictionary").innerHeight() * 2) {
+            if (scroll > $("#scrollContainerDictionary")[0].scrollHeight - $("#scrollContainerDictionary").innerHeight() * 3) {
                 const lastId = $("#wordContainer").find(".deffinition").last().data().wordId;
                 getWords(lastId + 1, "down");
             }
         }
         else {
             //scroll up is broken
-            if (scroll < $("#scrollContainerDictionary").innerHeight()) {
+            if (scroll < $("#scrollContainerDictionary").innerHeight()*2) {
                 const firstId = $("#wordContainer").find(".deffinition").first().data().wordId;
                 getWords(firstId - 1, "up");
             }
@@ -106,7 +106,8 @@ function getWords(startingIndex, direction /* "up", "down" or "center"*/, next, 
                     wordAdd(data[n], "up");
                 }*/
 
-                resetScrollPositionAfterWordLoadWhenUpdated(heightBefore);
+                //Don't need this any longer?
+                //resetScrollPositionAfterWordLoadWhenUpdated(heightBefore);
 
             }
 
@@ -336,7 +337,7 @@ function wordAddBefore(word) {
         scrollSnapObject = ``;
 
 
-    $(`${scrollSnapObject}<p class="deffinition" data-word-id="${word.rowid}">${word.definition}</p>`).insertAfter(`${currentRefElem} > h1`);
+    $(`${scrollSnapObject}<p class="deffinition" data-word-id="${word.rowid}">${word.definition}</p>`).insertAfter(`${$(currentRefElem).attr('id')} > h1`);
     //($(currentRefElem).append(`${scrollSnapObject}<p class="deffinition" data-word-id="${word.rowid}">${word.definition}</p>`);
     $(currentRefElem).children(".deffinition").lettering('words');
     $(currentRefElem).children(".deffinition").children().addClass("dictLink");
@@ -433,7 +434,9 @@ function resetScrollPositionAfterWordLoadWhenUpdated(originalContainerSize) {
         console.log(`Difference is ${heightAfter - originalContainerSize}`)
         if (heightAfter - size !== 0) {
             console.log(`Difference is SUCCESS`)
-            $("#scrollContainerDictionary").scrollTop($("#scrollContainerDictionary").scrollTop() + heightAfter - size);
+            console.log(`Scroll top is ${$("#scrollContainerDictionary").scrollTop()}`);
+            //$("#scrollContainerDictionary").scrollTop($("#scrollContainerDictionary").scrollTop() + heightAfter - size);
+            console.log(`Scroll top is ${$("#scrollContainerDictionary").scrollTop()}`);
         }
         else {
             setTimeout(function () { callMeWithTimeOut(size) }, 10);;
