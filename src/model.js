@@ -2,11 +2,18 @@ const sqlite3 = require('sqlite3').verbose();
 
 let db;
 let entryAmount;
+let updateDB = false;
 
 module.exports = {
 
     connectionInit: function (next) {
-        db = new sqlite3.Database("./db/Dictionary.db", sqlite3.OPEN_READWRITE, (err) => {
+        updateDB = false;
+
+        if (updateDB);
+        const openMode = updateDB ? sqlite3.OPEN_READWRITE : sqlite3.OPEN_READONLY;
+
+
+        db = new sqlite3.Database("./db/Dictionary.db", openMode, (err) => {
             if (err) {
                 throw err;
             }
@@ -72,18 +79,26 @@ function dbInit(next) {
         entryAmount = rows[0].count;
         console.log("Found " + entryAmount + " words in dictionary");
 
+        if(!updateDB)
+        {
+            next();
+        }
+
     });
-    module.exports.execute(`DROP TABLE IF EXISTS entries_ordered`, undefined, (rows) => {
-        module.exports.execute(`CREATE TABLE entries_ordered (word TEXT, wordtype TEXT, definition TEXT);`, undefined, (rows) => {
-            module.exports.execute(`INSERT INTO entries_ordered (word,wordtype, definition) SELECT word , wordtype , definition FROM entries ORDER BY word ;`, undefined, (rows) => {
-                module.exports.execute(`DROP TABLE entries;`, undefined, (rows) => {
-                    module.exports.execute(`ALTER TABLE entries_ordered RENAME TO entries;`, undefined, (rows) => {
-                        next();
+
+    if (updateDB) {
+        module.exports.execute(`DROP TABLE IF EXISTS entries_ordered`, undefined, (rows) => {
+            module.exports.execute(`CREATE TABLE entries_ordered (word TEXT, wordtype TEXT, definition TEXT);`, undefined, (rows) => {
+                module.exports.execute(`INSERT INTO entries_ordered (word,wordtype, definition) SELECT word , wordtype , definition FROM entries ORDER BY word ;`, undefined, (rows) => {
+                    module.exports.execute(`DROP TABLE entries;`, undefined, (rows) => {
+                        module.exports.execute(`ALTER TABLE entries_ordered RENAME TO entries;`, undefined, (rows) => {
+                            next();
+                        });
                     });
                 });
             });
         });
-    });
+    }
 
 
 
