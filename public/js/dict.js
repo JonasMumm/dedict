@@ -60,7 +60,7 @@ $(document).ready(() => {
 function getWords(startingIndex, direction /* "up", "down" or "center"*/, next, clear) {
     if (!isLoading) {
         isLoading = true;
-        $.get(`scrollload/${startingIndex}/${direction}`, function (data) {
+        $.get(`/dedict/scrollload/${startingIndex}/${direction}`, function (data) {
 
 
             setTimeout(()=>{isLoading = false;},300);
@@ -385,7 +385,7 @@ function jumpToWordMain(text) {
         //get id from server
         console.log("Couldnt find requested word in DOM, let's look it up at the server, shall we?");
 
-        $.get(`word_id/${text}`, function (data) {
+        $.get(`/dedict/word_id/${text}`, function (data) {
 
             let word_id = JSON.parse(data).word_id;
 
