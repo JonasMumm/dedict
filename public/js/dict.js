@@ -6,34 +6,6 @@ $(document).ready(() => {
         scrollToWord();
     });
 
-    //initialize load triggers
-    const LoadTriggerTop = $("#loadContentTriggerTop");
-    const LoadTriggerBottom = $("#loadContentTriggerBottom");
-
-    /*$(LoadTriggerTop).on("click", function () {
-        $.get("scrollload/95594/down", function (data) {
-
-            data = JSON.parse(data);
-            for (let n = 0; n < data.length; n++) {
-                wordAdd(data[n]);
-            }
-            console.log(data);
-
-        });
-    });
-
-    $(LoadTriggerBottom).on("click", function () {
-        $.get("scrollload/95594/down", function (data) {
-
-            data = JSON.parse(data);
-            for (let n = 0; n < data.length; n++) {
-                wordAdd(data[n]);
-            }
-            console.log(data);
-
-        });
-    });
-    */
 
     $("#scrollContainerDictionary").on("scroll", function () {
         let scroll = $("#scrollContainerDictionary").scrollTop();
@@ -90,7 +62,8 @@ function getWords(startingIndex, direction /* "up", "down" or "center"*/, next, 
         isLoading = true;
         $.get(`scrollload/${startingIndex}/${direction}`, function (data) {
 
-            isLoading = false;
+
+            setTimeout(()=>{isLoading = false;},300);
 
             if (clear) {
                 $("#wordContainer").empty();
@@ -121,7 +94,9 @@ function getWords(startingIndex, direction /* "up", "down" or "center"*/, next, 
 
             }
 
-            console.log(data);
+            //console.log(data);
+
+            
 
             if (next)
                 next();

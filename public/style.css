@@ -93,7 +93,7 @@ margin: 0 auto;
 .dictTreeElem
 {
     animation-name: fadeIn;
-    animation-duration: 2s;
+    animation-duration: 1s;
 }
 
 
@@ -384,7 +384,7 @@ margin:auto 1rem;
 
     transform: translate(-100vw,0);
 
-    transition: transform 0.5s cubic-bezier(.01,.8,.49,.99);
+    transition: transform 0.5s cubic-bezier(.01,.8,.49,1);
 
 }
 
