@@ -1,4 +1,3 @@
-const sqlite3 = require('sqlite3').verbose();
 
 const express = require('express');
 const expressBodyParser = require("body-parser");
@@ -13,7 +12,7 @@ const njk = expressNunjucks(app, {
     noCache: isDev,
     autoescape: true
 });
-
+const useLocalHost=false;
 
 const model = require("./src/model");
 const controller = require("./src/controller");
@@ -21,7 +20,7 @@ const controller = require("./src/controller");
 console.log("Prepparing!");
 model.connectionInit(() => { dbInitialized() });
 
-const appURL=""
+const appURL=useLocalHost?"":"/dedict";
 function dbInitialized() {
 
 app.use(`${appURL}/public`, express.static('public'));
@@ -33,5 +32,8 @@ app.get(`${appURL}/word_id/:word`,expressBodyParser.urlencoded({ extended: true 
 
     app.use((req, res) => { res.status(404).send("Error 404 - Page not found") });
 
-    app.listen(3000,() => console.log("Listening at port 3000."));
+    if(useLocalHost)
+    app.listen(3000, () => console.log("Listening at port 3000."));
+    else
+    app.listen(() => console.log("Listening at no specific port."));
 }
