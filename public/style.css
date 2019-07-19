@@ -398,12 +398,12 @@ margin:auto 1rem;
   width: auto;
   border: 3px black solid;
   background-color: white;
-  margin:auto;
+  margin:1rem auto 0 auto;
   font-size: 1.2rem;
   padding: 0.5rem;
 }
 
-.aboutContainerContent > p
+.aboutContainerContent > .aboutContainerContentText
 {
 overflow: auto;
 display: block;
@@ -431,4 +431,37 @@ cursor: pointer;
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
+}
+
+.dedictName{
+font-style: italic;
+}
+
+.highlight
+{
+  padding: 0.25rem 0.5rem;
+}
+
+.highlightNo
+{
+  background-color: rgba(255, 0, 0, 0.267);
+}
+
+.highlightOK
+{
+  background-color: rgba(0, 255, 0, 0.301);
+}
+
+.highlightUhOh
+{
+  background-color: rgba(255, 166, 0, 0.288);
+}
+
+.listBrowsers>li{
+  margin: 1rem 0;
+}
+
+.copyrightNotice
+{
+  font-size: 0.66rem;
 }
