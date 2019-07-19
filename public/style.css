@@ -187,7 +187,7 @@ display: inline-block;
 font-size: 2.35rem;
 margin-top: 1rem;
 margin-bottom: 1rem;
-margin-left:1rem;
+margin-left:1.5rem;
 }
 
 .sidebarContainer
@@ -245,6 +245,7 @@ text-decoration: inherit;
 vertical-align: top;
 margin-top: 1.3rem;
     display: inline-block;
+    margin-left: 1.5rem;
 }
 
 #searchField>p
@@ -252,9 +253,10 @@ margin-top: 1.3rem;
 color: white;
 display: inline-block;
 margin:0;
-padding: calc(0.5rem - 2px) 0.5rem;
-font-size: 1.3rem;
+padding: calc(0.0rem - 2px) 1rem;
+font-size: 1.8rem;
 vertical-align: top;
+transform: rotate(45deg);
 }
 
 #searchField>p:hover
@@ -266,7 +268,7 @@ vertical-align: top;
 {
   vertical-align: top;
 display:inline-block;
-margin:0 0 0 1rem;
+
 font-size: 1.3rem;
 font-family: fontTitle;
 background-color: white;
