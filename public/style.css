@@ -211,9 +211,6 @@ text-decoration: inherit;
 
 #searchField
 {
-    position: fixed;
-    left:64px;
-    bottom: 0;
     background-color: black;
 }
 
@@ -221,8 +218,10 @@ text-decoration: inherit;
 {
 color: white;
 display: inline-block;
-margin-right:1rem;
-font-size: 1rem;
+margin:0;
+padding-right:1rem;
+padding: 1rem;
+font-size: 1.2rem;
 }
 
 #searchField>p:hover
@@ -233,7 +232,27 @@ font-size: 1rem;
 #searchField>input
 {
 display:inline-block;
-margin:auto 1rem;
+margin:auto 0 auto 1rem;
+font-size: 1.2rem;
+font-family: fontTitle;
+background-color: white;
+border-radius: 4px;
+padding: 0.25rem 0.5rem;
+}
+
+.searchfieldGrid
+{
+  display: grid;
+  grid-template-columns: 64px auto 1fr;
+  position: fixed;
+  width: 100vw;
+  top:0;
+  left:0;
+}
+
+.searchfieldGridItem3
+{
+  background-image: linear-gradient(to right, rgb(0, 0, 0) , rgba(0, 0, 0, 0));
 }
 
 /* Spinner stuff */

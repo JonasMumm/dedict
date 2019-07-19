@@ -12,7 +12,7 @@ const njk = expressNunjucks(app, {
     noCache: isDev,
     autoescape: true
 });
-const useLocalHost=false;
+const useLocalHost=true;
 
 const model = require("./src/model");
 const controller = require("./src/controller");
@@ -20,7 +20,7 @@ const controller = require("./src/controller");
 console.log("Prepparing!");
 model.connectionInit(() => { dbInitialized() });
 
-const appURL=useLocalHost?"":"/dedict";
+const appURL="/dedict";
 function dbInitialized() {
 
 app.use(`${appURL}/public`, express.static('public'));
