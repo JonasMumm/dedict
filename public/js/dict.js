@@ -43,6 +43,8 @@ $(document).ready(() => {
     $("#txtSearch").keydown((event) => {
         if (event.which == 13) //if enter
         {
+            $("#txtSearch").blur();
+
             const elem=$("#txtSearch");
             if(elem.val().length>0)
             jumpToWordMain(elem.val());
