@@ -456,3 +456,27 @@ function aboutHide() {
         
     });
 }
+
+function ScrollToStart()
+{
+    isLoading=true;
+    setTimeout(function{isLoading=false},2000);
+const scrollTarget=$("#scrollContainerDictionary").scrollTop();
+const scrollSpeed=0.1;
+let scrollPosition=0;
+
+   let scrollToObject={scrollTarget,scrollSpeed,scrollPosition};
+
+   requestAnimationFrame((deltaTime)=>ScrollToUpdate(deltaTime,scrollToObject));
+}
+
+function ScrollToUpdate(deltaTime,scrollToObject)
+{
+    scrollToObject.scrollPosition+=(scrollToObject.scrollTarget-scrollToObject.scrollPosition)*scrollToObject.scrollSpeed;
+    $("#scrollContainerDictionary").scrollTop(scrollToObject.scrollPosition);
+
+    if((scrollToObject.scrollTarget-scrollToObject.scrollPosition)>=0.5)
+    {
+        requestAnimationFrame((dt)=>ScrollToUpdate(dt,scrollToObject));
+    }
+}
