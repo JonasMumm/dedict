@@ -32,6 +32,9 @@ color: rgb(30,30,30);
 
 body{
 margin: 0;
+overflow: hidden;
+width: 100vw;
+height: 100vh;
 }
 
 
@@ -536,7 +539,7 @@ font-style: italic;
 #loadingBlocker
 {
   z-index: 1234;
-  position: absolute;
+  position: fixed;
   left:0;
   top:0;
   width: 100vw;
@@ -547,5 +550,5 @@ font-style: italic;
   opacity:0;
   pointer-events: none;
   transition: opacity 0.25s, transform 0.25s;
-  transform: scale(10);
+  transform: scale(5);
 }
