@@ -35,13 +35,17 @@ $(document).ready(() => {
 
 
     $("#btnSearch").on("click", () => {
-        jumpToWordMain($("#txtSearch").val());
+        const elem=$("#txtSearch");
+        if(elem.val().length>0)
+        jumpToWordMain(elem.val());
     });
 
     $("#txtSearch").keydown((event) => {
         if (event.which == 13) //if enter
         {
-            jumpToWordMain($("#txtSearch").val());
+            const elem=$("#txtSearch");
+            if(elem.val().length>0)
+            jumpToWordMain(elem.val());
         }
     });
 
