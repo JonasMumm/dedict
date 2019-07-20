@@ -38,6 +38,10 @@ $(document).ready(() => {
         const elem=$("#txtSearch");
         if(elem.val().length>0)
         jumpToWordMain(elem.val());
+        else
+        {
+            ScrollToStart();
+        }
     });
 
     $("#txtSearch").keydown((event) => {
@@ -464,23 +468,34 @@ function aboutHide() {
 function ScrollToStart()
 {
     isLoading=true;
-    setTimeout(function{isLoading=false},2000);
+    setTimeout(()=>{isLoading=false},2000);
 const scrollTarget=$("#scrollContainerDictionary").scrollTop();
 const scrollSpeed=0.1;
 let scrollPosition=0;
 
    let scrollToObject={scrollTarget,scrollSpeed,scrollPosition};
 
-   requestAnimationFrame((deltaTime)=>ScrollToUpdate(deltaTime,scrollToObject));
+   //requestAnimationFrame((deltaTime)=>ScrollToUpdate(deltaTime,scrollToObject));
+   
+   //setTimeout(()=>{ScrollToUpdate(0,scrollToObject)},100);
+
+   //document.querySelector('#scrollContainerDictionary').scrollIntoView({behavior: 'smooth'});
+
+   $("#scrollContainerDictionary").scrollTop(0);
+   $("#scrollContainerDictionary").animate( { scrollTop: `${scrollTarget}px` } ,40000 )
+
 }
 
 function ScrollToUpdate(deltaTime,scrollToObject)
 {
-    scrollToObject.scrollPosition+=(scrollToObject.scrollTarget-scrollToObject.scrollPosition)*scrollToObject.scrollSpeed;
+    //scrollToObject.scrollPosition+=(scrollToObject.scrollTarget-scrollToObject.scrollPosition)*scrollToObject.scrollSpeed;
+    scrollToObject.scrollPosition+=1;
+    console.log(scrollToObject.scrollPosition);
     $("#scrollContainerDictionary").scrollTop(scrollToObject.scrollPosition);
 
     if((scrollToObject.scrollTarget-scrollToObject.scrollPosition)>=0.5)
     {
         requestAnimationFrame((dt)=>ScrollToUpdate(dt,scrollToObject));
+        //setTimeout(()=>{ScrollToUpdate(0,scrollToObject)},100);
     }
 }

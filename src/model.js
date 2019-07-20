@@ -1,8 +1,9 @@
 const sqlite3 = require('sqlite3').verbose();
 
+
 let db;
 let entryAmount;
-let updateDB = false;
+let updateDB;
 
 module.exports = {
 
