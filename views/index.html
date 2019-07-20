@@ -10,12 +10,10 @@
 
         gtag('config', 'UA-70648446-5');
     </script>
-    <title>dedict.</title>
+    <title>dedict</title>
     <link rel="stylesheet" href="/dedict/public/style.css">
     <link rel="shortcut icon" type="image/png" href="/dedict/public/img/favicon.png" />
-    <meta 
-     name='viewport' 
-     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+    <meta name='viewport' content='user-scalable=0' />
 </head>
 
 <body>
@@ -23,12 +21,12 @@
     <div id="mainGrid">
         <div id="sidebar">
             <div class="sidebarContainer">
-                <h1 class="title"><a href="/dedict">dedict.</a></h1>
-                <h1 class="title halfTransparent noselect" id="aboutButton"><a>about.</a></h1>
+                <h1 class="title"><a href="/dedict">dedict</a></h1>
+                <h1 class="title halfTransparent noselect" id="aboutButton"><a>about</a></h1>
                 <div id="searchField">
-                    <input type="text" id="txtSearch" placeholder="Search" size="16" maxlength="30"/>
+                    <input type="text" id="txtSearch" placeholder="Search" size="16" maxlength="30" />
 
-                    <p id="btnSearch">&#9906;</p>
+                    <img id="btnSearch" alt="search" src="/dedict/public/img/search.png">
                 </div>
 
             </div>
@@ -85,9 +83,9 @@
         <div class="aboutContainer">
             <div style="padding:2rem; height: 100%" id="aboutMarginContainer">
                 <div class=aboutContainerContent>
-                    <h1>About dedict.</h1>
+                    <h1>About dedict</h1>
                     <div class="aboutContainerContentText">
-                        <p><span class="dedictName">dedict.</span> is a lightweight dictionary for web browsers, that
+                        <p><span class="dedictName">dedict</span> is a lightweight dictionary for web browsers, that
                             aims to replicate the expirience of flicking through
                             a classic, physical dictionary. The most exciting part of using olt-timey hardcover
                             dictionaries for me is to stumble across rare and interesting words
@@ -95,18 +93,19 @@
                             rabbit hole of discovering new expressions along the way.<br>
                             Current online dictionaries don't really allow this to happen anymore, as they're not build
                             for discovery, but for efficiency, in order to come up with
-                            the user's result quickly. <span class="dedictName">dedict.</span> isn't meant to replace
+                            the user's result quickly. <span class="dedictName">dedict</span> isn't meant to replace
                             them, but to offer an alternative interaction that would
                             otherwise decay, and I hope a couple people find as much enjoyment in as I do.<br><br>
-                            ~~ <span class="dedictName">dedict.</span> was made in June/July 2019 by <a
+                            ~~ <span class="dedictName">dedict</span> was made in June/July 2019 by <a
                                 href="https://jonasmumm.itch.io">Jonas Mumm</a>
                         </p>
                         <h2>Browser Support</h2>
                         <p>
-                            <span class="dedictName">dedict.</span> uses experimental browser features and unusual ways structuring the page to make the 
+                            <span class="dedictName">dedict</span> uses experimental browser features and unusual ways
+                            structuring the page to make the
                             dictionary work. Therefore it may look a little different from browser to browser, so here's
                             a list of browsers that display
-                            <span class="dedictName">dedict.</span> as expected as of July 2019:
+                            <span class="dedictName">dedict</span> as expected as of July 2019:
                             <h3>Working as Expected</h3>
                             <ul class="listBrowsers">
                                 <li>
@@ -144,14 +143,17 @@
                         <h2>Links</h2>
                         <ul>
                             <li>
-                                <a href="https://github.com/JonasMumm/dedict"><span class="dedictName">dedict.</span> on
+                                <a href="https://github.com/JonasMumm/dedict"><span class="dedictName">dedict</span> on
                                     GitHub</a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/jonasmumm">Jonas on Twitter</a>
+                                <a href="https://twitter.com/jonasmumm">Me on Twitter</a>
                             </li>
                             <li>
-                                <a href="https://jonasmumm.itch.io">Games made by Jonas</a>
+                                <a href="https://jonasmumm.itch.io">Games I made</a>
+                            </li>
+                            <li>
+                                <a href="http://manufutur.com">Future Projects???</a>
                             </li>
                         </ul>
                         <h2>Resources Used</h2>
@@ -501,6 +503,30 @@
 
     </div>
 
+    <div id="loadingBlocker">
+        <div>
+        </div>
+        <div>
+            <div class="lds-css ng-scope" style="transform: scale(1.75)">
+                <div class="lds-spinner" style="width:100%;height:100%;margin:auto;">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div>
+        </div>
+    </div>
 
 </body>
 

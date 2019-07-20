@@ -390,9 +390,9 @@ function jumpToWordMain(text) {
     if (!found) {
         //get id from server
         console.log("Couldnt find requested word in DOM, let's look it up at the server, shall we?");
-
+        loadingBlockerShow();
         $.get(`/dedict/word_id/${text}`, function (data) {
-
+            loadingBlockerHide();
             let word_id = JSON.parse(data).word_id;
 
             console.log("ID of " + text + " is " + word_id);
@@ -460,5 +460,24 @@ function aboutHide() {
     $(`.aboutContainerContent`).css({
         "transform":"translate(-100vh,0)"
         
+    });
+}
+
+function loadingBlockerShow()
+{
+    $(`#loadingBlocker`).css({
+        "opacity": "0.6",
+        "pointer-events": "all",
+        "transform":"scale(1)"
+        
+    });
+}
+
+function loadingBlockerHide()
+{
+    $(`#loadingBlocker`).css({
+        "opacity": "0",
+        "pointer-events": "none",
+        "transform":"scale(10)",
     });
 }
