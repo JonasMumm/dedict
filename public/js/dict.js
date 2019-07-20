@@ -392,13 +392,15 @@ function jumpToWordMain(text) {
         console.log("Couldnt find requested word in DOM, let's look it up at the server, shall we?");
         loadingBlockerShow();
         $.get(`/dedict/word_id/${text}`, function (data) {
-            loadingBlockerHide();
+
+            const timeOut=setTimeout(()=>{loadingBlockerHide()},5000);
+
             let word_id = JSON.parse(data).word_id;
 
             console.log("ID of " + text + " is " + word_id);
 
 
-            getWords(word_id, "center", () => { scrollToWord(text) }, true);
+            getWords(word_id, "center", () => {loadingBlockerHide(); clearTimeout(timeOut); scrollToWord(text) }, true);
 
         });
     }
@@ -478,6 +480,6 @@ function loadingBlockerHide()
     $(`#loadingBlocker`).css({
         "opacity": "0",
         "pointer-events": "none",
-        "transform":"scale(10)",
+        "transform":"scale(4)",
     });
 }
